@@ -70,9 +70,12 @@ namespace Example
     {
         public static void Main()
         {
-
-            Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8090";
+            var config = new Configuration
+            {
+                BasePath = "https://api.bludelta.ai/v1-18",
+                DefaultHeaders = { {"X-ApiKey","YOUR_API_KEY"} }
+            };
+                                    
             var apiInstance = new InvoicedetailApi(config);
             var accept = accept_example;  // string | Accept Header
             var filter = 789;  // long? | Filter for Invoice details that shall be predicted<br>flag 'None' will return all available Invoice details for your subscription,<br>else define the filter by providing a bitmask for the Invoice details that shall be predicted.<br>e.g. Filter = GrandTotalAmount | Ibans.<br><br>Filters:<br><ul><li>None:                      0</li><li>DeliveryDate:              8</li><li>GrandTotalAmount:         16</li><li>InvoiceDate:              64</li><li>InvoiceId:              1024</li><li>DocumentType:           8192</li><li>Ibans:                 16384</li><li>InvoiceCurrency:      524288</li><li>CustomerId:          2097152</li><li>UstIds:              8388608</li><li>SenderOrderId:      16777216</li><li>ReceiverOrderId:    33554432</li><li>SenderOrderDate:    67108864</li><li>ReceiverOrderDate: 134217728</li><li>VatGroup:          536870912</li></ul> (optional) 
@@ -126,13 +129,5 @@ Class | Method | HTTP request | Description
  - [Model.LineItemTableResponse](docs/LineItemTableResponse.md)
 
 
-<a name="documentation-for-authorization"></a>
-## Documentation for Authorization
 
-<a name="Bearer"></a>
-### Bearer
-
-- **Type**: API key
-- **API key parameter name**: Authorization
-- **Location**: HTTP header
 
